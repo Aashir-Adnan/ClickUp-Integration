@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.e6c13ad2.css",
-    "main.js": "/react-gh-pages/static/js/main.e2455718.js",
-    "static/media/itu-logo.png": "/react-gh-pages/static/media/itu-logo.9e59756bf55e87386c64.png",
-    "static/media/axios.cjs": "/react-gh-pages/static/media/axios.693cfcc9e5223535a0dc.cjs",
-    "index.html": "/react-gh-pages/index.html",
-    "main.e6c13ad2.css.map": "/react-gh-pages/static/css/main.e6c13ad2.css.map",
-    "main.e2455718.js.map": "/react-gh-pages/static/js/main.e2455718.js.map"
+    "main.css": "/ClickUp-Integration/static/css/main.e6c13ad2.css",
+    "main.js": "/ClickUp-Integration/static/js/main.366bbc00.js",
+    "static/media/itu-logo.png": "/ClickUp-Integration/static/media/itu-logo.9e59756bf55e87386c64.png",
+    "static/media/axios.cjs": "/ClickUp-Integration/static/media/axios.693cfcc9e5223535a0dc.cjs",
+    "index.html": "/ClickUp-Integration/index.html",
+    "main.e6c13ad2.css.map": "/ClickUp-Integration/static/css/main.e6c13ad2.css.map",
+    "main.366bbc00.js.map": "/ClickUp-Integration/static/js/main.366bbc00.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.e2455718.js"
+    "static/js/main.366bbc00.js"
   ]
 }
