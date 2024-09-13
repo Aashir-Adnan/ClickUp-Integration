@@ -1,0 +1,11 @@
+notes: 
+Wrote up APIs for complex db execution like joins, join deletes, join updates
+Cleaned up alot of spaghetti code
+Reworked how refresh tokens work to now allow the front end user to hit a refresh API instead of being given an updated access token after each API hit
+Refresh tokens are now stored in teh database for extra security
+Talked to new front end intern and showed him the theme + walked him through the documentation
+Went through requests with Maryan (still in progress)
+Reorganized utility functions for modularity 
+Wrote up API to enter permissions for assigning and modifying roles when the new roles are added
+Changed how validation objects were loaded to be dynamic instead of static
+Mapped table names to their counterpart models for fewer accesses to the database and instead access to the models themselves

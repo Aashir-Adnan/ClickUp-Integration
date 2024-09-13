@@ -1,0 +1,194 @@
+
+//////////////// 2ND JULY WORK /////////////////////
+
+Utility program: 
+CREATE A DATABASE DRAFT/DO MARKET RESEARCH + FEATURE ANALYSIS
+speech recognition
+image recognition
+accounts (pins, login etc, financial transactions, salary slip)
+transactions (object [official/home], travelling/food/utility, specific object)
+unified account status
+primary linking to phone numbers OR email address\
+GOOGLE DOC IT
+
+//////////////// 3RD JULY WORK /////////////////////
+
+
+fixes: 
+
+3 attributes
+record 
+last updated 
+status delted/current/etc
+
+loan request fix [status] --DONE
+add tier id to tasklog --DONE
+
+TR needs to be reworked to manage statuses, time progress, comments/needs correspondence --DONE
+
+Change transactions to a dropdown menu --DONE
+
+MAKE SURE THERES NO ROOM FOR ERROR
+
+REMOVE SIGNUP ENTIRELY, UNNECESSARY --DONE
+ROLES TABLE INSTEAD OF ADMIN --DONE
+HOW ARE YOU GROUPING PEOPLE TOGETHER --DONE
+INCLUDE TIERS IN USERs --DONE
+HOW WOULD A USER BELONG TO MULTIPLE TEAM--DONE
+
+
+//////////////// 4th JULY WORK /////////////////////
+
+introduce companies and departments --DONE
+introduce scheduled jobs/frequency, priority tasks --DONE
+introduce middle man transactions --DONE
+logging times --DONE
+heirarchy/approval process ??? ASK USAMA MAMU [NOTE ATTEMPTED TO MAKE A HEIRARCHY TABLE TABLE] --DONE
+relate loans to teams, how many loans can a person take? how do you track who gave it to him? --DONE
+remove monthly records, its a view --DONE
+add complaints table --DONE
+add salary and benefits table (separate) [scheduled payroll] what about salary packages?? Propose this idea as an alternative. --DONE
+add healthcare table --DONE
+add fallbacks (i.e. who becomes reliable for xyz's abscence) --DONE
+add leave table --DONE
+how would you keep track of performances --DONE
+add method to track trainees/interns and their training period --DONE
+add recruitment (whos in charge of orientation) --REDUNDANT?
+add external contacts (plumber electrician etc) --DONE
+add dispute log --DONE
+
+
+//////////////// 5th JULY WORK /////////////////////
+change references userid to references position id in dept members --DONE
+add method to track tenure at a position, start date, termination date --DONE
+external resources is redundant, add a flag in position for part time, full time, external -- DONE
+change all 3 task tables, just reference the position id for task assigner the rest is intuitive, change the names of TR and TaskLog -- DONE
+keep a daily record of how much time was spent on a task -- DONE
+trainees is redundant, add this in positions -- DONE
+add a record to keep track of salary and how it changed over the period --DONE
+performance is redundant in member daily log --removed and changed to tasks
+relate assetOut to assets --DONE
+add a benefit record too --UNNECESSARY
+add a hierarchy record too --DOENE
+Add a contract table --DONE
+Add a conference room and calendar table --DONE
+Add a meeting and meeting record table --DONE
+
+
+//////////////// 8th JULY WORK ///////////////////
+add table for the actual task that is created based on the task template --DONE
+financials needs its nature removed, add a table for category and sub category (previously transaction specifics) --DONE
+make sure the naming is coherent and universal for hierarchy --DONE
+keep a loan process table --THIS IS REDUNDANT, LOAN PROCESSES ARE ALREADY PART OF THE LOAN TABLE
+hierarchy records is redundant remove it and make sure theres a way to keep track of that in the original table --DONE
+do the same for salary (new entry per salary change) -- DONE
+add a table to keep track of salary payments -- DONE
+include a collateral price for assets --DONE
+include healthcare insurance policies (maybe a separate table) --INCLUDED INSURANCE POLICY NUMBER IN TABLE
+keep an attendance record to check against leaves --DONE
+maybe a leaves request table? --ALSO PART OF LEAVES TABLE UNDER APPROVAL
+
+
+GROUP ALL OF THIS IN A DIFFERENT PROGRAM GROUP TABLES ACCORDING TO USAGE 
+
+////////////////9th JULY WORK ///////////////////
+attachment file work for task comments and task templates --DONE
+move task priority to task entry --DONE
+the log should only be created once someone clocks in work [lack of work can be checked with outer joins] --NOTED
+change task entry --DONE
+change transactions to include ALL transactions including loans and salaries, figure out a way to include member ids in sub cat --DONE
+change naming convention of hierarchy --DONE
+
+
+
+python script for attachment file management
+
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+import sqlite3
+import os
+
+def upload_to_azure(local_file_path, container_name, connection_string):
+    # Initialize BlobServiceClient
+    blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+    blob_name = os.path.basename(local_file_path)
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+
+    # Upload the file to Azure Blob Storage
+    with open(local_file_path, "rb") as data:
+        blob_client.upload_blob(data)
+
+    # Get the URL of the uploaded file
+    return blob_client.url
+
+def store_file_url_in_db(task_id, comment_text, file_url, db_path):
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO TaskComments (CommentText, FilePath)
+        VALUES (//extract form WA api, URL)
+    """, (task_id, comment_text, file_url))
+
+    conn.commit()
+    conn.close()
+
+# Configuration
+local_file_path = "../WhatsAppImages/"
+container_name = "PD-Container"
+connection_string = ""
+db_path = "PD.db"
+
+# Upload file and store URL in database
+file_url = upload_to_azure(local_file_path, container_name, connection_string)
+store_file_url_in_db(1, "Comment here", file_url, db_path)
+
+print(f"File uploaded and URL stored in database: {file_url}")
+
+
+
+
+
+
+API FCUNTION LIST:
+header
+WhatsApp message receiver
+WhatsApp message sender
+Parser
+get (universal)
+set (universal)
+update (universal)
+put (universal)
+delete (essentially update) (universal)
+Authority Mismatch Handler
+Document Uploader
+Document Downloader
+Folder handler
+Unique Identifier Checker
+Notifying Employees/Admins
+Activity Logger (? if cache keeps detailed enough info)
+Assuming Login will be handled by existing API
+
+////////////////12th JULY WORK ///////////////////
+MAKE A WIREFRAME FOR THE PRODUCT
+create a column for unique identifiers and directories for files that will be stored
+
+
+
+
+
+
+add roles
+add user roles
+add permissions
+add user role permissions
+remove deptid from dmid
+add payment interval loans
+reload tasklog time progress
+add time progress to UX
+
+
+
+write up sign in and sign up
+
+Hammad Granjur
+03236663392

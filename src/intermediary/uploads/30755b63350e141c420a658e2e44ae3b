@@ -1,0 +1,12 @@
+SPECIFIC APIS:
+
+task alert API: 
+task id
+priority
+get tasks by priority/all if NLL
+
+
+specific task API:
+use firebase
+get vns
+get details
